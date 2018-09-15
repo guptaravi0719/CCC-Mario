@@ -129,7 +129,7 @@ class mario {
         if(key== KeyEvent.VK_SPACE)
             y = 285;
         if(key==KeyEvent.VK_RIGHT)
-            xvel=0;//bcz when i release key then i m not moving anymore
+            xvel=0;
     }}
 
 
