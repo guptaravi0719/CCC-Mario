@@ -16,17 +16,12 @@ import javax.swing.*;
 
     public class MarioByRavi {
     public static void main(String[] args) {
-
-Frame frame = new JFrame("Mario Project by Ravi");
+        JFrame frame = new JFrame("Mario Project by Ravi");
         frame.setBackground(Color.CYAN);
-
         frame.setResizable(false);
         frame.add(new board());
-
-        ((JFrame) frame).setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(600, 430);
-
-
         frame.setVisible(true);
     }}
 
@@ -34,10 +29,11 @@ class mario {
     Random random=new Random();
     int x, xvel, yvel, y,xfirstback,xsecondback,
             yenemy1=285,yenemy2=285,yenemy3=285,yenemy4=285,yenemy5=285,yenemy6=285;
-           int xenemy1= random.nextInt(5000);
-   int xenemy2= 5000;
-   int xenemy3= 3000;
-    int xenemy4=2000;
+
+    int xenemy1= 1000+random.nextInt(5000);
+    int xenemy2=1000+random.nextInt(5000);
+   int xenemy3= 1000+random.nextInt(5000);
+    int xenemy4=1200;
     int xenemy5 =3500;
     int xenemy6= 7000;
     Image img2=null;
@@ -48,7 +44,7 @@ class mario {
     Image imgenemy5=null;
     Image imgenemy6=null;
 
-    public mario() {Graphics g;
+    public mario() {
         try {
             img2 = ImageIO.read(board.class.getClassLoader().getResource("image/Zxfbi.png"));
             imgenemy1 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1.png"));

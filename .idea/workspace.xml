@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="704e7b72-d89d-4b3b-9370-6133f4e0a388" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Game/gamegame/MarioByRavi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Game/gamegame/MarioByRavi.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Game/gamegame/board$for_key_methods_in_mario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Game/gamegame/board$for_key_methods_in_mario.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Game/gamegame/board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Game/gamegame/board.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Game/gamegame/mario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Game/gamegame/mario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Game/image/star1.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Game/image/star2 - Copy.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Game/image/star2.PNG" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gamegame/MarioByRavi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamegame/MarioByRavi.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,13 +20,13 @@
     <session id="689318617">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.35" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -46,12 +44,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2903" />
+          <entry key="java" value="3096" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2903" />
+          <entry key="JAVA" value="3096" />
         </counts>
       </usages-collector>
     </session>
@@ -61,8 +59,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gamegame/MarioByRavi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="83">
+              <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -96,8 +94,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="518" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="248" />
+    <option name="y" value="-14" />
     <option name="width" value="852" />
     <option name="height" value="735" />
   </component>
@@ -106,49 +105,11 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Game" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gamegame" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gamegame" type="462c0819:PsiDirectoryNode" />
-              <item name="MarioByRavi.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="Game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="image" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536999976526" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537016649116" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/CCC-Mario-Ravi" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -219,8 +180,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="518" y="0" width="852" height="735" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.6315789" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -231,7 +191,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31946754" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3180328" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -299,8 +259,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gamegame/MarioByRavi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="83">
+          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
