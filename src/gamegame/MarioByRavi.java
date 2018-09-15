@@ -16,10 +16,10 @@ import javax.swing.*;
 
     public class MarioByRavi {
     public static void main(String[] args) {
-//JPanel poanel=new JPanel();
+
 Frame frame = new JFrame("Mario Project by Ravi");
         frame.setBackground(Color.CYAN);
-       // frame.add(poanel);
+
         frame.setResizable(false);
         frame.add(new board());
 
@@ -48,7 +48,7 @@ class mario {
     Image imgenemy5=null;
     Image imgenemy6=null;
 
-    public mario() {
+    public mario() {Graphics g;
         try {
             img2 = ImageIO.read(board.class.getClassLoader().getResource("image/Zxfbi.png"));
             imgenemy1 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1.png"));
@@ -101,11 +101,10 @@ class mario {
         }
         if(x==xenemy5&&y==285){
             System.out.println("GAME OVER");
-            java.lang.System.exit(0);
+          java.lang.System.exit(0);
         }
         if (x == xenemy6 && y == 285) {
-            System.out.println("GAME OVER");
-            java.lang.System.exit(0);
+            System.out.println("GAME OVER");java.lang.System.exit(0);
         }
     }
 
