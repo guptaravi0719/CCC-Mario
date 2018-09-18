@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.applet.*;
+import javax.sound.sampled.*;
 
 
 import javax.imageio.ImageIO;
@@ -28,11 +29,12 @@ public class MarioByRavi {
         frame.setSize(600, 430);
         frame.setVisible(true);
     }}
-    class mario { public static boolean condition=false,bol=true;
+    class mario { 
+    public static boolean condition=false, bol=true ;
     Graphics g;
     Random random=new Random();
     int x, xvel, yvel, y,xfirstback,xsecondback,
-            yenemy1=285,yenemy2=285,yenemy3=285,yenemy4=285,yenemy5=285,yenemy6=285,yenemy7=285,yenemy8=285;
+            yenemy1=285, yenemy2=285,yenemy3=285,yenemy4=285,yenemy5=285,yenemy6=285,yenemy7=285,yenemy8=285;
           int score=0;
     int xenemy1= 4500+random.nextInt(5000);
     int xenemy2=8000+random.nextInt(5000);
@@ -73,10 +75,13 @@ public class MarioByRavi {
     Image imgenemy6=null;
     Image imgenemy7=null;
 Image  imgenemy8=null;
-    public mario() {
+
+
+        public mario() {
 
 
         try {
+
             plane1 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_plane.png"));
             plane2 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_plane.png"));
             plane3 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_plane.png"));
@@ -99,7 +104,7 @@ Image  imgenemy8=null;
             ev.printStackTrace();
         }
         x = 50;
-        y = 285;
+            y = 285;
         xfirstback = 0;
         xsecondback = 600;
 
@@ -130,49 +135,79 @@ xplane1=xplane1-5;
         if(xsecondback==0){
             xfirstback=600;
         }
+        URL url = this.getClass().getClassLoader().getResource("sounds/smb_gameover.wav");
+        AudioInputStream audioIn = null;
+        try {
+            audioIn = AudioSystem.getAudioInputStream(url);
+        } catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Clip clip = null;
+        try {
+            clip = AudioSystem.getClip();
+        } catch (LineUnavailableException e) {
+            e.printStackTrace();
+        }
+        try {
+            clip.open(audioIn);
+        } catch (LineUnavailableException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         if(x==xenemy1&&y==285){
 
-            condition=true;
 
+            condition=true;
+           clip.start();
         }
 
         if (x == xenemy2 && y == 285) {
+
+            clip.start();
             condition=true;
             bol=true;
         }
         if(x==xenemy3&&y==285){
+            clip.start();
             condition=true;
 
         }
         if (x ==xenemy4 && y == 285) {
+            clip.start();
             condition=true;
 
         }
         if(x==xenemy5&&y==285){
+            clip.start();
             condition=true;
 
         }
         if(x==xplane1&&y==220){
+            clip.start();
             condition=true;
 
         }
         if(x==xplane2&&y==220){
+            clip.start();
             condition=true;
 
         }
-        if(x==xplane3&&y==220){
+        if(x==xplane3&&y==220){ clip.start();
             condition=true;
 
         }
-        if(x==xplane5&&y==220){
+        if(x==xplane5&&y==220){ clip.start();
             condition=true;
 
         }
-        if(x==xplane6&&y==220){
+        if(x==xplane6&&y==220){ clip.start();
             condition=true;
 
         }
-        if(x==xplane7&&y==220){
+        if(x==xplane7&&y==220){ clip.start();
             condition=true;
 
         }
@@ -180,7 +215,7 @@ xplane1=xplane1-5;
 
 
 
-        if (x == xenemy6 && y == 285) {
+        if (x == xenemy6 && y == 285) { clip.start();
             condition=true;
 
         }
@@ -195,6 +230,29 @@ xplane1=xplane1-5;
         int key = e.getKeyCode();
 
          if(key==KeyEvent.VK_SPACE) {
+             URL url2 = this.getClass().getClassLoader().getResource("sounds/smb_jumpsmall.wav");
+             AudioInputStream audioIn = null;
+             try {
+                 audioIn = AudioSystem.getAudioInputStream(url2);
+             } catch (UnsupportedAudioFileException ex) {
+                 ex.printStackTrace();
+             } catch (IOException ex) {
+                 ex.printStackTrace();
+             }
+             Clip clip2 = null;
+             try {
+                 clip2 = AudioSystem.getClip();
+             } catch (LineUnavailableException ex) {
+                 ex.printStackTrace();
+             }
+             try {
+                 clip2.open(audioIn);
+             } catch (LineUnavailableException ex) {
+                 ex.printStackTrace();
+             } catch (IOException ex) {
+                 ex.printStackTrace();
+             }
+             clip2.start();
             y = 220;
 
 
@@ -275,8 +333,15 @@ over=ImageIO.read(MarioByRavi.class.getClassLoader().getResource("image/rsz_game
         g.drawImage(p.plane5, p.xplane5, p.yplane5, null);
         g.drawImage(p.plane6, p.xplane6, p.yplane6, null);
         g.drawImage(p.plane7, p.xplane7, p.yplane7, null);
-        g.drawString("score "+"   "+score,20,20);
-if(p.condition==true) {
+        g.drawString("score"+" "+score,5,20);
+        g.setColor(Color.BLUE);
+
+        g.setFont(new Font("Courier new",Font.BOLD,20));
+        g.drawString("JUMP--SPACEBAR",150,30);
+
+        g.drawString("MOVE--RIGHT ",380,30);
+
+        if(p.condition==true) {
     g.setColor(Color.green);
 
     g.setFont(new Font("Courier new", Font.BOLD, 50));
@@ -293,8 +358,8 @@ class for_key_methods_in_mario extends KeyAdapter {
             p.keyReleased(e);
            }
            public void keyPressed(KeyEvent e){
-if(p.bol==true){
-    score++;
+              if(p.bol==true){
+               score++;
 }
             p.keyPressed(e);
 
