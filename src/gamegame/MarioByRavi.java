@@ -19,6 +19,8 @@ import javax.swing.*;
 
 public class MarioByRavi {
 
+
+
     public static void main(String[] args) {
 
         JFrame frame = new JFrame("Mario Project by Ravi");
@@ -31,6 +33,7 @@ public class MarioByRavi {
     }}
     class mario { 
     public static boolean condition=false, bol=true ;
+        static boolean jump = false;
     Graphics g;
     Random random=new Random();
     int x, xvel, yvel, y,xfirstback,xsecondback,
@@ -219,47 +222,42 @@ xplane1=xplane1-5;
             condition=true;
 
         }
-
-
-    }
-
-
-
-
-    public void keyPressed(KeyEvent e) {
+        }
+        public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
 
-         if(key==KeyEvent.VK_SPACE) {
-             URL url2 = this.getClass().getClassLoader().getResource("sounds/smb_jumpsmall.wav");
-             AudioInputStream audioIn = null;
-             try {
-                 audioIn = AudioSystem.getAudioInputStream(url2);
-             } catch (UnsupportedAudioFileException ex) {
-                 ex.printStackTrace();
-             } catch (IOException ex) {
-                 ex.printStackTrace();
-             }
-             Clip clip2 = null;
-             try {
-                 clip2 = AudioSystem.getClip();
-             } catch (LineUnavailableException ex) {
-                 ex.printStackTrace();
-             }
-             try {
-                 clip2.open(audioIn);
-             } catch (LineUnavailableException ex) {
-                 ex.printStackTrace();
-             } catch (IOException ex) {
-                 ex.printStackTrace();
-             }
-             clip2.start();
-            y = 220;
+        if(!jump) {
 
+            if (key == KeyEvent.VK_SPACE) {
+                URL url2 = this.getClass().getClassLoader().getResource("sounds/smb_jumpsmall.wav");
+                AudioInputStream audioIn = null;
+                jump = true;
+                try {
+                    audioIn = AudioSystem.getAudioInputStream(url2);
+                } catch (UnsupportedAudioFileException ex) {
+                    ex.printStackTrace();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                Clip clip2 = null;
+                try {
+                    clip2 = AudioSystem.getClip();
+                } catch (LineUnavailableException ex) {
+                    ex.printStackTrace();
+                }
+                try {
+                    clip2.open(audioIn);
+                } catch (LineUnavailableException ex) {
+                    ex.printStackTrace();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                clip2.start();
+                y = 220;
 
-
+                System.out.println("pressed");
+            }
         }
-
-
 
         if (key == KeyEvent.VK_RIGHT){
 
@@ -271,9 +269,12 @@ xplane1=xplane1-5;
         int key=e.getKeyCode();
         if(key==KeyEvent.VK_LEFT)
             xvel=0;
-           if(key== KeyEvent.VK_SPACE)
+           if(key== KeyEvent.VK_SPACE){
                y=285;
+               jump = false;
+           }
 
+            System.out.println("release");
 
         if(key==KeyEvent.VK_RIGHT)
             xvel=0;
