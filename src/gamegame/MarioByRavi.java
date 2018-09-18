@@ -32,7 +32,7 @@ public class MarioByRavi {
         frame.setVisible(true);
     }}
     class mario { 
-    public static boolean condition=false, bol=true ;
+    public static boolean condition=false, bol=true ,bol2=true;
         static boolean jump = false;
     Graphics g;
     Random random=new Random();
@@ -85,24 +85,24 @@ Image  imgenemy8=null;
 
         try {
 
-            plane1 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_plane.png"));
+            plane1 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1 - Copy - Copy.png"));
             plane2 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_plane.png"));
             plane3 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_plane.png"));
             plane4 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_plane.png"));
             plane5 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_plane.png"));
-            plane6 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_plane.png"));
+            plane6 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1 - Copy - Copy.png"));
             plane7 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_plane.png"));
             fire = ImageIO.read(board.class.getClassLoader().getResource("image/fire.png"));
             img2 = ImageIO.read(board.class.getClassLoader().getResource("image/Zxfbi.png"));
-            imgenemy1 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1.png"));
-            imgenemy2 = ImageIO.read(board.class.getClassLoader().getResource("image/grub1.png"));
-            imgenemy3 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1 - Copy (2).png"));
-            imgenemy4 = ImageIO.read(board.class.getClassLoader().getResource("image/grub1.png"));
-            imgenemy5 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1 - Copy (3).png"));
-            imgenemy6 = ImageIO.read(board.class.getClassLoader().getResource("image/grub1 - Copy - Copy (2).png "));
-            imgenemy6 = ImageIO.read(board.class.getClassLoader().getResource("image/grub1 - Copy - Copy (2).png "));
-            imgenemy7 = ImageIO.read(board.class.getClassLoader().getResource("image/grub1 - Copy - Copy (2).png "));
-            imgenemy8 = ImageIO.read(board.class.getClassLoader().getResource("image/grub1 - Copy - Copy (2).png "));
+            imgenemy1 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_enemygun.png"));
+            imgenemy2 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_enemygun.png"));
+            imgenemy3 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_enemy.png"));
+            imgenemy4 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_enemygun.png"));
+            imgenemy5 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_enemygun.png"));
+            imgenemy6 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1 - Copy - Copy.png"));
+            imgenemy6 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_enemygun.png "));
+            imgenemy7 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_enemygun.png"));
+            imgenemy8 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_enemygun.png"));
         } catch (IOException ev) {
             ev.printStackTrace();
         }
@@ -118,8 +118,8 @@ Image  imgenemy8=null;
 xplane1=xplane1-5;
         xplane2=xplane2-1;
         xplane3=xplane3-1;
-        xplane4=xplane4-2;
-        xplane5=xplane5-5;
+        xplane4=xplane4-1;
+        xplane5=xplane5-1;
         xplane5=xplane5-1;
         xplane6=xplane6-1;
         xplane7=xplane7-2;
@@ -160,6 +160,17 @@ xplane1=xplane1-5;
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        if(y==220){
+            yvel=+1;
+        }
+        if(y>=285){
+            y=285;
+        }
+
+
+
+
         if(x==xenemy1&&y==285){
 
 
@@ -167,36 +178,42 @@ xplane1=xplane1-5;
            clip.start();
         }
 
-        if (x == xenemy2 && y == 285) {
+        if (x == xenemy2) {
 
             clip.start();
             condition=true;
-            bol=true;
+
+
         }
-        if(x==xenemy3&&y==285){
+        if(x==xenemy3){
             clip.start();
             condition=true;
 
-        }
-        if (x ==xenemy4 && y == 285) {
-            clip.start();
-            condition=true;
 
         }
-        if(x==xenemy5&&y==285){
+        if (x ==xenemy4) {
             clip.start();
             condition=true;
 
         }
-        if(x==xplane1&&y==220){
+        if(x==xenemy5){
             clip.start();
             condition=true;
 
         }
-        if(x==xplane2&&y==220){
+        if(x==xplane1&&y==210){
             clip.start();
             condition=true;
 
+        }
+        if(x==xplane2&&y==200){
+            clip.start();
+            condition=true;
+
+        }
+        if(score>500&&score<550){
+
+            clip.start();
         }
         if(x==xplane3&&y==220){ clip.start();
             condition=true;
@@ -213,6 +230,7 @@ xplane1=xplane1-5;
         if(x==xplane7&&y==220){ clip.start();
             condition=true;
 
+
         }
 
 
@@ -220,6 +238,7 @@ xplane1=xplane1-5;
 
         if (x == xenemy6 && y == 285) { clip.start();
             condition=true;
+          bol=false;
 
         }
         }
@@ -253,7 +272,10 @@ xplane1=xplane1-5;
                     ex.printStackTrace();
                 }
                 clip2.start();
-                y = 220;
+                yvel=-1;
+
+
+
 
                 System.out.println("pressed");
             }
@@ -270,7 +292,7 @@ xplane1=xplane1-5;
         if(key==KeyEvent.VK_LEFT)
             xvel=0;
            if(key== KeyEvent.VK_SPACE){
-               y=285;
+
                jump = false;
            }
 
@@ -341,6 +363,17 @@ over=ImageIO.read(MarioByRavi.class.getClassLoader().getResource("image/rsz_game
         g.drawString("JUMP--SPACEBAR",150,30);
 
         g.drawString("MOVE--RIGHT ",380,30);
+        g.setColor(Color.BLACK);
+
+        g.setFont(new Font("Times New Roman",Font.BOLD,15));
+        if(score>500&&score<600)
+        {
+            g.drawString("Congratulations 500+ score",200,100);
+        }
+        if(score>1000&&score<1100)
+        {
+            g.drawString("Congratulations 1000+ score",200,100);
+        }
 
         if(p.condition==true) {
     g.setColor(Color.green);
