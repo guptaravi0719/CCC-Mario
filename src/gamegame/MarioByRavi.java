@@ -36,62 +36,68 @@ public class MarioByRavi {
         static boolean jump = false;
     Graphics g;
     Random random=new Random();
-    int x, xvel, yvel, y,xfirstback,xsecondback,
-            yenemy1=285, yenemy2=285,yenemy3=285,yenemy4=285,yenemy5=285,yenemy6=285,yenemy7=285,yenemy8=285;
-          int score=0;
+    int x, xvel, yvel, y, xfirstback,xsecondback, yenemy1=285, yenemy2=285,yenemy3=285,yenemy4=285,yenemy5=285,yenemy6=285,yenemy7=285,yenemy8=285;
+    int score=0;
     int xenemy1= 4500+random.nextInt(5000);
     int xenemy2=8000+random.nextInt(5000);
-   int xenemy3= 3100+random.nextInt(5000);
+    int xenemy3= 3100+random.nextInt(5000);
     int xenemy4=1200;
     int xenemy5 =3500;
     int xenemy6= 7000;
-    int xenemy7=5000;
+    int xflag=600;
+    int yflag= 285;
+        int xenemy7=5000;
     int xenemy8=6000;
     int xplane1=2000;
-        int xplane2=9000;
-        int xplane3=6500;
-        int xplane4=7500;
-        int xplane5=9000;
-        int xplane6=6500;
-        int  xplane7=7500;
-        int yplane1=210;
-        int yplane2=210;
-        int yplane3=210;
-        int yplane4=210;
-        int yplane5=210;
-        int yplane6=210;
-        int yplane7=210;
-    Image plane1=null;
-    Image plane2=null;
-    Image plane3=null;
-        Image plane4=null;
-        Image plane5=null;
-        Image plane6=null;
-    Image plane7=null;
-           Image fire=null;
-        Image    img2=null;
-    Image imgenemy1=null;
-    Image  imgenemy2=null;
-    Image imgenemy3=null;
-    Image imgenemy4=null;
-    Image imgenemy5=null;
-    Image imgenemy6=null;
-    Image imgenemy7=null;
-Image  imgenemy8=null;
+        int xplane2=15000;
+        int xplane3=16000;
+        int xplane4=17500;
+        int xplane5=19000;
+        int xplane6=16500;
+        int  xplane7=19500;
+        int yplane1=285;
+        int yplane2=285;
+        int yplane3=285;
+        int yplane4=285;
+        int yplane5=285;
+        int yplane6=285;
+        int yplane7=285;
+         Image plane1=null;
+         Image plane2=null;
+         Image plane3=null;
+         Image plane4=null;
+         Image plane5=null;
+         Image plane6=null;
+         Image plane7=null;
+         Image fire=null;
 
+
+         Image img2=null;
+         Image imgenemy1=null;
+         Image  imgenemy2=null;
+         Image imgenemy3=null;
+         Image imgenemy4=null;
+         Image imgenemy5=null;
+         Image imgenemy6=null;
+         Image imgenemy7=null;
+Image  imgenemy8=null;
+Image flag=null;
+Image energy=null;
 
         public mario() {
 
 
         try {
+            flag = ImageIO.read(board.class.getClassLoader().getResource("image/rez_flag.png"));
+            energy= ImageIO.read(board.class.getClassLoader().getResource("image/energyf.png"));
 
             plane1 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1 - Copy - Copy.png"));
-            plane2 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_plane.png"));
-            plane3 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_plane.png"));
-            plane4 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_plane.png"));
-            plane5 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_plane.png"));
+            plane2 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1 - Copy.png"));
+            plane3 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1 - Copy.png"));
+            plane4 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1 - Copy.png"));
+            plane5 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1 - Copy.png"));
             plane6 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1 - Copy - Copy.png"));
-            plane7 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_plane.png"));
+            plane7 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1 - Copy.png"));
             fire = ImageIO.read(board.class.getClassLoader().getResource("image/fire.png"));
             img2 = ImageIO.read(board.class.getClassLoader().getResource("image/Zxfbi.png"));
             imgenemy1 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_enemygun.png"));
@@ -115,8 +121,7 @@ Image  imgenemy8=null;
 
     public void move() {
 
-xplane1=xplane1-5;
-        xplane2=xplane2-1;
+
         xplane3=xplane3-1;
         xplane4=xplane4-1;
         xplane5=xplane5-1;
@@ -130,8 +135,8 @@ xplane1=xplane1-5;
         xenemy4=xenemy4-1;
         xenemy5=xenemy5-1;
         xenemy6=xenemy6 -1;
-      xenemy1=xenemy1-1;
-     xenemy2=xenemy2-1;
+        xenemy1=xenemy1-1;
+        xenemy2=xenemy2-1;
         if(xfirstback==0) {
             xsecondback = 600; //infinite back
         }
@@ -171,65 +176,64 @@ xplane1=xplane1-5;
 
 
 
-        if(x==xenemy1&&y==285){
-
-
+        if(x==xenemy1-5&&y==285){
             condition=true;
+            bol2=false;
            clip.start();
         }
 
-        if (x == xenemy2) {
-
+        if (x == xenemy2-5&&y==285) {
+            bol2=false;
             clip.start();
             condition=true;
 
 
         }
-        if(x==xenemy3){
+        if(x==xenemy3-5&&y==285){
             clip.start();
             condition=true;
-
+            bol2=false;
 
         }
-        if (x ==xenemy4) {
+        if (x ==xenemy4-5&&y==285) {
             clip.start();
             condition=true;
-
+            bol2=false;
         }
-        if(x==xenemy5){
+        if(x==xenemy5-5&&y==285){
             clip.start();
             condition=true;
-
+            bol2=false;
         }
-        if(x==xplane1&&y==210){
+        if(x==xplane1-5&&y==210){
             clip.start();
             condition=true;
-
+            bol2=false;
         }
         if(x==xplane2&&y==200){
             clip.start();
             condition=true;
-
+            bol2=false;
         }
         if(score>500&&score<550){
 
             clip.start();
         }
-        if(x==xplane3&&y==220){ clip.start();
+        if(x==xplane3&&y==285){ clip.start();
+            condition=true;
+            bol2=false;
+        }
+        if(x==xplane5&&y==285){ clip.start();
             condition=true;
 
         }
-        if(x==xplane5&&y==220){ clip.start();
+        if(x==xplane6&&y==285){ clip.start();
             condition=true;
-
+            bol2=false;
         }
-        if(x==xplane6&&y==220){ clip.start();
+        if(x==xplane7&&y==285){ clip.start();
             condition=true;
-
-        }
-        if(x==xplane7&&y==220){ clip.start();
-            condition=true;
-
+            bol2=false;
 
         }
 
@@ -239,6 +243,7 @@ xplane1=xplane1-5;
         if (x == xenemy6 && y == 285) { clip.start();
             condition=true;
           bol=false;
+            bol2=false;
 
         }
         }
@@ -304,27 +309,27 @@ xplane1=xplane1-5;
     }}
 
 
-    class board  extends JPanel implements ActionListener { int score;
+    class board  extends JPanel implements ActionListener { float score=0;
     mario p  ;
-    Image imgback1=null,imgback2=null,Thanku=null;
+    Image imgback1=null,imgback2=null;
     Timer time;
 
-Image over;
+     Image over;
     public board() {
         addKeyListener(new for_key_methods_in_mario());
         setFocusable(true);
         p = new mario();
 
         try {
-            Thanku=ImageIO.read(MarioByRavi.class.getClassLoader().getResource("image/gv4S8.jpg"));
-over=ImageIO.read(MarioByRavi.class.getClassLoader().getResource("image/rsz_game-over-png-5.png"));
+            over=ImageIO.read(MarioByRavi.class.getClassLoader().getResource("image/rsz_game-over-png-5.png"));
             imgback1 = ImageIO.read(MarioByRavi.class.getClassLoader().getResource("image/WHu9Z.png"));
             imgback2= ImageIO.read(MarioByRavi.class.getClassLoader().getResource("image/WHu9Z.png"));
         } catch (IOException ev) {
             ev.printStackTrace();
         }
-       time = new Timer(5, this);
-      time.start();
+
+          time = new Timer(5, this);
+          time.start();
 
 
     }
@@ -335,10 +340,13 @@ over=ImageIO.read(MarioByRavi.class.getClassLoader().getResource("image/rsz_game
           }
 
 
-    public void paint(Graphics g) {g.setColor(Color.RED);
+    public void paint(Graphics g) {
+        if(p.bol2==true){
+            score = (float) (score+.05);
+        }
+        g.setColor(Color.RED);
 
-    g.setFont(new Font("Courier new",Font.BOLD,30));
-
+        g.setFont(new Font("Courier new",Font.BOLD,30));
         g.drawImage(imgback1, p.xfirstback, 0, null);//make same object of graphic class only
         g.drawImage(imgback2, p.xsecondback, 0, null);
         g.drawImage(p.img2, p.x, p.y, null);
@@ -356,6 +364,13 @@ over=ImageIO.read(MarioByRavi.class.getClassLoader().getResource("image/rsz_game
         g.drawImage(p.plane5, p.xplane5, p.yplane5, null);
         g.drawImage(p.plane6, p.xplane6, p.yplane6, null);
         g.drawImage(p.plane7, p.xplane7, p.yplane7, null);
+        g.drawImage(p.energy, 3000,285, null);
+        g.drawImage(p.energy, 4500,285, null);
+        g.drawImage(p.energy, 12000,285, null);
+        g.drawImage(p.energy, 9000,285, null);
+        g.drawImage(p.energy, 15000,285, null);
+        g.drawImage(p.imgenemy7, p.xenemy5, p.yenemy5, null);
+        g.drawImage(p.flag, p.xflag, p.yflag, null);
         g.drawString("score"+" "+score,5,20);
         g.setColor(Color.BLUE);
 
@@ -368,7 +383,8 @@ over=ImageIO.read(MarioByRavi.class.getClassLoader().getResource("image/rsz_game
         g.setFont(new Font("Times New Roman",Font.BOLD,15));
         if(score>500&&score<600)
         {
-            g.drawString("Congratulations 500+ score",200,100);
+            g.drawString("Congratulations 500+ score" ,200,100);
+
         }
         if(score>1000&&score<1100)
         {
@@ -376,26 +392,35 @@ over=ImageIO.read(MarioByRavi.class.getClassLoader().getResource("image/rsz_game
         }
 
         if(p.condition==true) {
-    g.setColor(Color.green);
+             g.setColor(Color.green);
 
-    g.setFont(new Font("Courier new", Font.BOLD, 50));
-    g.drawImage(imgback1, p.xfirstback, 0, null);
-    g.drawImage(over, 0, 0, null);
-    g.drawString("max score is" + " " + score, 50, 50);
+             g.setFont(new Font("Courier new", Font.BOLD, 50));
+             g.drawImage(imgback1, p.xfirstback, 0, null);
+             g.drawImage(over, 0, 0, null);
+
+             g.drawString("max score is" + " " + Math.round (score*100)/100, 50, 50);
   
-    p.bol=false;
-}}
-class for_key_methods_in_mario extends KeyAdapter {
+              p.bol=false;
+                          }
+    }
+
+
+    class for_key_methods_in_mario extends KeyAdapter {
 
           public void keyReleased(KeyEvent e){  // if(p.x>p.xenemy1||p.x>p.xenemy2||p.x>p.xenemy3||p.x>p.xenemy4||p.x>p.xenemy5||p.x>p.xenemy6)
 
             p.keyReleased(e);
            }
+
            public void keyPressed(KeyEvent e){
-              if(p.bol==true){
+
+          /*   if(p.bol==true){
                score++;
-}
-            p.keyPressed(e);
+             }*/
+               if (p.bol2 == true) {
+
+                   p.keyPressed(e);
+               }
 
           }}}
 
