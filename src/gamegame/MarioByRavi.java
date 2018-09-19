@@ -45,7 +45,12 @@ public class MarioByRavi {
     int xenemy5 =3500;
     int xenemy6= 7000;
     int xflag=600;
-    int yflag= 285;
+
+    int yflag= 150;
+    int xfire=5000;
+    int xfire2=10000;
+        int yfire2=285;
+    int yfire=285;
         int xenemy7=5000;
     int xenemy8=6000;
     int xplane1=2000;
@@ -90,7 +95,6 @@ Image energy=null;
         try {
             flag = ImageIO.read(board.class.getClassLoader().getResource("image/rez_flag.png"));
             energy= ImageIO.read(board.class.getClassLoader().getResource("image/energyf.png"));
-
             plane1 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1 - Copy - Copy.png"));
             plane2 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1 - Copy.png"));
             plane3 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1 - Copy.png"));
@@ -98,7 +102,7 @@ Image energy=null;
             plane5 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1 - Copy.png"));
             plane6 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1 - Copy - Copy.png"));
             plane7 = ImageIO.read(board.class.getClassLoader().getResource("image/fly1 - Copy.png"));
-            fire = ImageIO.read(board.class.getClassLoader().getResource("image/fire.png"));
+            fire = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_fire.png"));
             img2 = ImageIO.read(board.class.getClassLoader().getResource("image/Zxfbi.png"));
             imgenemy1 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_enemygun.png"));
             imgenemy2 = ImageIO.read(board.class.getClassLoader().getResource("image/rsz_enemygun.png"));
@@ -120,11 +124,11 @@ Image energy=null;
     }
 
     public void move() {
-
-
+        xfire2 =xfire2-1;
+        xfire =xfire-2;
         xplane3=xplane3-1;
-        xplane4=xplane4-1;
-        xplane5=xplane5-1;
+        xplane4=xplane4-2;
+        xplane5=xplane5-2;
         xplane5=xplane5-1;
         xplane6=xplane6-1;
         xplane7=xplane7-2;
@@ -166,7 +170,7 @@ Image energy=null;
             e.printStackTrace();
         }
 
-        if(y==220){
+        if(y==200){
             yvel=+1;
         }
         if(y>=285){
@@ -176,58 +180,71 @@ Image energy=null;
 
 
 
-        if(x==xenemy1-5&&y==285){
-            condition=true;
-            bol2=false;
-           clip.start();
-        }
-
-        if (x == xenemy2-5&&y==285) {
-            bol2=false;
-            clip.start();
-            condition=true;
-
-
-        }
-        if(x==xenemy3-5&&y==285){
+        if(x==xenemy1&&y==285){
             clip.start();
             condition=true;
             bol2=false;
 
         }
-        if (x ==xenemy4-5&&y==285) {
-            clip.start();
-            condition=true;
-            bol2=false;
-        }
-        if(x==xenemy5-5&&y==285){
-            clip.start();
-            condition=true;
-            bol2=false;
-        }
-        if(x==xplane1-5&&y==210){
-            clip.start();
-            condition=true;
-            bol2=false;
-        }
-        if(x==xplane2&&y==200){
-            clip.start();
-            condition=true;
-            bol2=false;
-        }
-        if(score>500&&score<550){
 
+        if (x == xenemy2&&y==285) {
             clip.start();
-        }
-        if(x==xplane3&&y==285){ clip.start();
-            condition=true;
             bol2=false;
-        }
-        if(x==xplane5&&y==285){ clip.start();
+
             condition=true;
 
+
         }
-        if(x==xplane6&&y==285){ clip.start();
+        if(x==xenemy3&&y==285){
+
+                clip.start();
+            condition=true;
+            bol2=false;
+
+        }
+
+        if (x ==xenemy4-15&&y==285) {
+
+            clip.start();
+            condition=true;
+            bol2=false;
+        }
+        if(x==xenemy5-15&&y==285){
+
+            clip.start();
+            condition=true;
+            bol2=false;
+        }
+        if(x==xplane1-15&&y==285){
+
+            clip.start();
+            condition=true;
+            bol2=false;
+        }
+        if(x==xplane2&&y==285){
+
+            clip.start();
+            condition=true;
+            bol2=false;
+        }
+        if(x==xplane4&&y==285){
+
+            clip.start();
+            condition=true;
+            bol2=false;
+        }
+
+        if(x==xplane3&&y==285){  clip.start();
+            condition=true;
+            bol2=false;
+        }
+        if(x==xplane5&&y>=285){  clip.start();
+            bol2=false;
+            condition=true;
+
+        }
+        if(x==xplane6&&y==285){  clip.start();
+
             condition=true;
             bol2=false;
         }
@@ -236,11 +253,7 @@ Image energy=null;
             bol2=false;
 
         }
-
-
-
-
-        if (x == xenemy6 && y == 285) { clip.start();
+        if (x == xenemy6 && y == 285) {  clip.start();
             condition=true;
           bol=false;
             bol2=false;
@@ -279,10 +292,6 @@ Image energy=null;
                 clip2.start();
                 yvel=-1;
 
-
-
-
-                System.out.println("pressed");
             }
         }
 
@@ -301,7 +310,7 @@ Image energy=null;
                jump = false;
            }
 
-            System.out.println("release");
+
 
         if(key==KeyEvent.VK_RIGHT)
             xvel=0;
@@ -341,8 +350,10 @@ Image energy=null;
 
 
     public void paint(Graphics g) {
+        if(p.xfire==p.x&&p.y==285){score=score+2000;}
+        if(p.xfire2==p.x&&p.y==285){score=score+2000;}
         if(p.bol2==true){
-            score = (float) (score+.05);
+            score++;
         }
         g.setColor(Color.RED);
 
@@ -364,13 +375,11 @@ Image energy=null;
         g.drawImage(p.plane5, p.xplane5, p.yplane5, null);
         g.drawImage(p.plane6, p.xplane6, p.yplane6, null);
         g.drawImage(p.plane7, p.xplane7, p.yplane7, null);
-        g.drawImage(p.energy, 3000,285, null);
-        g.drawImage(p.energy, 4500,285, null);
-        g.drawImage(p.energy, 12000,285, null);
-        g.drawImage(p.energy, 9000,285, null);
-        g.drawImage(p.energy, 15000,285, null);
+           g.drawImage(p.fire, p.xfire, p.yfire, null);
+        g.drawImage(p.fire, p.xfire2, p.yfire2, null);
+
         g.drawImage(p.imgenemy7, p.xenemy5, p.yenemy5, null);
-        g.drawImage(p.flag, p.xflag, p.yflag, null);
+        g.drawImage(p.imgenemy1, p.xflag, p.yflag, null);
         g.drawString("score"+" "+score,5,20);
         g.setColor(Color.BLUE);
 
@@ -379,16 +388,16 @@ Image energy=null;
 
         g.drawString("MOVE--RIGHT ",380,30);
         g.setColor(Color.BLACK);
-
+        g.drawImage(p.fire , 600, 50, null);
         g.setFont(new Font("Times New Roman",Font.BOLD,15));
-        if(score>500&&score<600)
+        if(score>5000&&score<6000)
         {
-            g.drawString("Congratulations 500+ score" ,200,100);
+            g.drawString("Congratulations 5000+ score" ,200,100);
 
         }
-        if(score>1000&&score<1100)
+        if(score>10000&&score<11000)
         {
-            g.drawString("Congratulations 1000+ score",200,100);
+            g.drawString("Congratulations 10000+ score",200,100);
         }
 
         if(p.condition==true) {
@@ -398,7 +407,7 @@ Image energy=null;
              g.drawImage(imgback1, p.xfirstback, 0, null);
              g.drawImage(over, 0, 0, null);
 
-             g.drawString("max score is" + " " + Math.round (score*100)/100, 50, 50);
+             g.drawString("max score is" + " " + Math.round (score*100)/100, 10, 50);
   
               p.bol=false;
                           }
@@ -407,16 +416,12 @@ Image energy=null;
 
     class for_key_methods_in_mario extends KeyAdapter {
 
-          public void keyReleased(KeyEvent e){  // if(p.x>p.xenemy1||p.x>p.xenemy2||p.x>p.xenemy3||p.x>p.xenemy4||p.x>p.xenemy5||p.x>p.xenemy6)
-
+          public void keyReleased(KeyEvent e){
             p.keyReleased(e);
            }
 
            public void keyPressed(KeyEvent e){
 
-          /*   if(p.bol==true){
-               score++;
-             }*/
                if (p.bol2 == true) {
 
                    p.keyPressed(e);
