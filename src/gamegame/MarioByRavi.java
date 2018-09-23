@@ -20,19 +20,23 @@ import javax.swing.*;
 public class MarioByRavi {
 
 
+    public AbstractButton button;
 
     public static void main(String[] args) {
+        //JButton button=new JButton("CLICK FOR START");
 
         JFrame frame = new JFrame("Mario Project by Ravi");
         frame.setBackground(Color.CYAN);
         frame.setResizable(false);
         frame.add(new board());
+      //  frame.add(button);
+      
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(600, 430);
         frame.setVisible(true);
     }}
     class mario { 
-    public static boolean condition=false, bol=true ,bol2=true;
+    public static boolean condition=false, bol=true ,bol2=true,bolpaint=true,right=false;
         static boolean jump = false;
     Graphics g;
     Random random=new Random();
@@ -192,7 +196,7 @@ Image energy=null;
             bol2=false;
 
             condition=true;
-
+            bolpaint=false;
 
         }
         if(x==xenemy3&&y==285){
@@ -200,62 +204,62 @@ Image energy=null;
                 clip.start();
             condition=true;
             bol2=false;
-
+            bolpaint=false;
         }
 
-        if (x ==xenemy4-15&&y==285) {
+        if (x ==xenemy4&&y==285) {
 
             clip.start();
-            condition=true;
+            condition=true;      bolpaint=false;
             bol2=false;
         }
-        if(x==xenemy5-15&&y==285){
+        if(x==xenemy5&&y==285){
 
             clip.start();
-            condition=true;
+            condition=true;      bolpaint=false;
             bol2=false;
         }
-        if(x==xplane1-15&&y==285){
+        if(x==xplane1&&y==285){
 
             clip.start();
-            condition=true;
+            condition=true;      bolpaint=false;
             bol2=false;
         }
         if(x==xplane2&&y==285){
 
             clip.start();
-            condition=true;
+            condition=true;      bolpaint=false;
             bol2=false;
         }
         if(x==xplane4&&y==285){
 
             clip.start();
-            condition=true;
+            condition=true;      bolpaint=false;
             bol2=false;
         }
 
         if(x==xplane3&&y==285){  clip.start();
             condition=true;
-            bol2=false;
+            bol2=false;      bolpaint=false;
         }
-        if(x==xplane5&&y>=285){  clip.start();
-            bol2=false;
+        if(x==xplane5&&y==285){  clip.start();
+            bol2=false;      bolpaint=false;
             condition=true;
 
         }
         if(x==xplane6&&y==285){  clip.start();
 
             condition=true;
-            bol2=false;
+            bol2=false;      bolpaint=false;
         }
         if(x==xplane7&&y==285){ clip.start();
             condition=true;
-            bol2=false;
+            bol2=false;      bolpaint=false;
 
         }
         if (x == xenemy6 && y == 285) {  clip.start();
             condition=true;
-          bol=false;
+          bol=false;      bolpaint=false;
             bol2=false;
 
         }
@@ -295,12 +299,13 @@ Image energy=null;
             }
         }
 
-        if (key == KeyEvent.VK_RIGHT){
+        if(key == KeyEvent.VK_RIGHT)
+        {right=true;
 
              xvel=2;
+        }}
 
- }}
-    public void keyReleased(KeyEvent e){
+        public void keyReleased(KeyEvent e){
 
         int key=e.getKeyCode();
         if(key==KeyEvent.VK_LEFT)
@@ -322,9 +327,9 @@ Image energy=null;
     mario p  ;
     Image imgback1=null,imgback2=null;
     Timer time;
-
+MarioByRavi m=new MarioByRavi();
      Image over;
-    public board() {
+    public board() { JButton button=new JButton();
         addKeyListener(new for_key_methods_in_mario());
         setFocusable(true);
         p = new mario();
@@ -350,14 +355,17 @@ Image energy=null;
 
 
     public void paint(Graphics g) {
+
         if(p.xfire==p.x&&p.y==285){score=score+2000;}
         if(p.xfire2==p.x&&p.y==285){score=score+2000;}
+if(p.right==true){
         if(p.bol2==true){
-            score++;
+            score++;}
         }
+       // if(p.bolpaint=true){
         g.setColor(Color.RED);
 
-        g.setFont(new Font("Courier new",Font.BOLD,30));
+        g.setFont(new Font("Courier new",Font.BOLD ,30));
         g.drawImage(imgback1, p.xfirstback, 0, null);//make same object of graphic class only
         g.drawImage(imgback2, p.xsecondback, 0, null);
         g.drawImage(p.img2, p.x, p.y, null);
@@ -407,7 +415,7 @@ Image energy=null;
              g.drawImage(imgback1, p.xfirstback, 0, null);
              g.drawImage(over, 0, 0, null);
 
-             g.drawString("max score is" + " " + Math.round (score*100)/100, 10, 50);
+             g.drawString("score is" + " " + Math.round (score*100)/100, 10, 50);
   
               p.bol=false;
                           }
